@@ -17,3 +17,12 @@ def test_schema_of_list_samples_items():
 def test_merge_marks_missing_keys_optional():
     merged = jsonpeek.schema([{"a": 1}, {"a": 1, "b": 2}])
     assert merged[0]["b"] == ("int", "optional")
+
+
+def test_merge_unions_conflicting_types():
+    assert jsonpeek.merge("int", "str") == "int|str"
+
+def test_render_produces_lines():
+    lines = jsonpeek.render({"a": "int"})
+    assert lines[0].strip() == "{"
+    assert any("a: int" in line for line in lines)
