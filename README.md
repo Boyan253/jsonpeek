@@ -15,3 +15,22 @@ python jsonpeek.py response.json
 python jsonpeek.py events.jsonl --lines
 curl -s https://api.example.com/things | python jsonpeek.py -
 ```
+
+## Output
+
+```
+{
+  items: [
+    {
+      id: int
+      name: str
+      deleted_at: null|str  (optional)
+    }
+  ]
+  total: int
+}
+```
+
+- Arrays are collapsed to a single merged element type.
+- A key missing from some elements is marked `(optional)`.
+- Conflicting types are unioned, e.g. `int|str`.
