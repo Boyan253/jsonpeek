@@ -34,3 +34,8 @@ curl -s https://api.example.com/things | python jsonpeek.py -
 - Arrays are collapsed to a single merged element type.
 - A key missing from some elements is marked `(optional)`.
 - Conflicting types are unioned, e.g. `int|str`.
+
+## Sampling
+
+Large arrays are sampled (`--sample`, default 50 items) so the tool stays fast
+on big files. Raise it if the tail of your data looks different from the head.
