@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jsonpeek"
+version = "0.1.0"
+description = "Print the inferred schema of a JSON or JSONL file so you can see its shape without reading it."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/Boyan253/jsonpeek"
+
+[project.scripts]
+jsonpeek = "jsonpeek:main"
+
+[tool.setuptools]
+py-modules = ["jsonpeek"]

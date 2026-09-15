@@ -5,6 +5,8 @@ import argparse
 import json
 import sys
 
+__version__ = "0.1.0"
+
 
 def type_name(value):
     if value is None:
@@ -84,6 +86,8 @@ def load(path, jsonl=False):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--version", action="version",
+                    version="%(prog)s " + __version__)
     ap.add_argument("json_file", help="path to the file, or - for stdin")
     ap.add_argument("--lines", action="store_true", help="input is JSONL")
     ap.add_argument("--sample", type=int, default=50,
